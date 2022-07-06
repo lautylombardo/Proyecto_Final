@@ -1,0 +1,36 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+
+
+{% block content %}
+
+<h1>Perfil</h1>
+
+
+
+{% if page_user.imagen %}
+    <img src="{{ page_user.imagen.url }}" width="40" height="40" class="rounded-circle">
+{% endif %}
+    </div>
+
+       {{ page_user.user.first_name }} 
+       {{ page_user.user.last_name }}  
+
+    </div>
+    </div>
+<p class="card-text">
+    {{ page_user.descripcion }}
+</p>
+<hr>
+<br/>
+{{ blog.cuerpo|safe }}
+<br/><br/>
+{% if blog.imagen %}
+<img src="{{ blog.imagen.url }}">
+{% endif %}
+<br/><br/>
+    
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block title %} Editar Perfil {% endblock %}
+
+{% block content %}
+
+<h1>Editar Perfil</h1>
+<br/>
+<div class="container">
+<div class="form-group">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}  
+        <button class="btn btn-secondary">Editar Perfil</button>
+</div>
+</div>
+
+{% endblock %}

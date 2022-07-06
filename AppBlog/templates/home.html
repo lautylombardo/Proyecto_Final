@@ -1,0 +1,30 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+
+
+{% block content %}
+
+<h1>Posts</h1>
+
+<ul>
+{% for blog in object_list %}
+  <li><a href="{% url 'articulo' blog.pk %}"> {{ blog.titulo }}</a> - 
+    {{ blog.autor.first_name }}
+    {{ blog.autor.last_name }} - 
+    {{ blog.fecha }}
+    <small>
+      {% if user.is_authenticated %}
+        {% if user.id == blog.autor.id %}
+          <a href="{% url 'editar' blog.pk %}">(Editar)</a>
+          <a href="{% url 'eliminar' blog.pk %}">(Eliminar)</a>
+        {% endif %}
+      {% endif %}
+    </small> <br/> 
+    {{ blog.cuerpo|safe }}
+  </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

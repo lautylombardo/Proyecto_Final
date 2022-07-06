@@ -1,0 +1,22 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block title %} Eliminar {% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<br/>
+<h3>Eliminar: {{ blog.titulo }}</h3>
+<br/>
+<div class="form-group">
+    <form method="POST">
+        {% csrf_token %}
+        <strong>¿Estás seguro?</strong><br/>
+        <button class="btn btn-secondary">Eliminar</button>
+</div>
+</div>
+{% else %}
+No estas logueado!!
+{% endif %}
+{% endblock %}

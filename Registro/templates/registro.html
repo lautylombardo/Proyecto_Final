@@ -1,0 +1,20 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block title %} Registro {% endblock %}
+
+{% block content %}
+
+<h1>Registro</h1>
+<br/>
+<div class="container">
+<div class="form-group">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}  
+        <button class="btn btn-secondary">Registro</button>
+</div>
+</div>
+
+{% endblock %}

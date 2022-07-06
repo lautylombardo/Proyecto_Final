@@ -1,0 +1,27 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block title %} Agregar {% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<h1>Agregar</h1>
+<br/>
+<div class="container">
+<div class="form-group">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.media }}  
+        {{ form.as_p }}  
+        <button>Crear</button>
+</div>
+</div>
+<script>
+    
+
+</script>
+{% else %}
+No estas logueado!!
+{% endif %}
+{% endblock %}

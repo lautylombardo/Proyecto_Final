@@ -1,0 +1,27 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block title %} Editar {% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    {% if user.id == blog.autor.id %}
+        <h1>Editar</h1>
+        <br/>
+        <div class="container">
+        <div class="form-group">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.media }}  
+                {{ form.as_p }}  
+                <button>Editar</button>
+        </div>
+        </div>
+    {% else %}
+        Este post no es tuyo
+    {% endif %}
+{% else %}
+No estas logueado!!
+{% endif %}
+{% endblock %}
